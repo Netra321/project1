@@ -1,0 +1,104 @@
+<html>
+    <style>
+        #box{
+            width:200px;
+		    height:100px;
+            top: 0;
+            left:0;
+            transform:rotate(0deg);
+            transition: 0.2s;
+		    background-color:pink;
+            }
+    </style>
+
+    <script>
+        /*
+        let box = document.querySelector('#box');
+        let x=0;
+        let y=0;
+        let speed = 10;
+        let windowWidth = window.innerWidth;
+        let windowHeight = window.innerHeight;
+
+        document.addEventListener('keydown', (e) => {
+            if(e.keyCode == '37') {
+                if(x>0)  {
+                    x-=speed;
+                   // box.style.left = x + 'px';
+                    box.style.transform = 'rotate(270deg)';
+                }
+            }else if(e.keyCode == '38'){
+                if(y>0){
+                    y-=speed;
+                  //  box.style.top = y + 'px';
+                    box.style.transform = 'rotate(-0deg)';
+                }
+            }else if (e.keyCode == '39'){
+                if(x+100 < windowWidth){
+                    x += speed;
+                   // box.style.left = x +'px';
+                    box.style.transform = 'rotate(90deg)';
+                }
+            }else if (e.keyCode == '40'){
+             if(y+100 < windowWidth){
+                y += speed;
+                //box.style.left = y +'px';
+                box.style.transform = 'rotate(90deg)';        
+             }
+        }
+    }); */
+   document.onkeydown = detectKey;
+function detectKey(e) {
+    var posLeft = document.getElementById('box').offsetLeft;
+    var posTop = document.getElementById('box').offsetTop;
+    e = e || window.event;
+    if (e.keyCode == '38') {
+        // up arrow
+        document.getElementById('box').style.marginTop  = (posTop-58)+"px";
+        box.style.transform = 'rotate(90deg)';
+    }
+    else if (e.keyCode == '40') {
+        // down arrow
+        document.getElementById('box').style.marginTop  = (posTop+58)+"px";
+    }
+    else if (e.keyCode == '37') {
+       // left arrow
+        document.getElementById('box').style.marginLeft  = (posLeft-58)+"px";
+    }
+    else if (e.keyCode == '39') {
+       // right arrow
+        document.getElementById('box').style.marginLeft  = (posLeft+58)+"px";
+    }
+}    /*
+window.requestAnimationFrame(box); 
+window.addEventListener('keydown', e => {
+    inputDir = {x: 0, y: 1};
+switch (e.key) {
+        case "ArrowUp":
+            console.log("Arrowup");
+            inputDir.x = 0;
+            inputDir.y = -1;
+            break;
+
+        case "ArrowDown":
+            console.log("ArrowDown");
+            inputDir.x = 0;
+            inputDir.y = 1;
+            break;
+        
+        case "ArrowLeft":
+            console.log("ArrowLeft");
+            inputDir.x = -1;
+            inputDir.y = 0;
+            break;
+
+        case "ArrowRight":
+            console.log("ArrowRight");
+            inputDir.x = 1;
+            inputDir.y = 0;
+            break; 
+        }    
+     });  */
+    </script>
+    <div id="box"></div>
+</html>

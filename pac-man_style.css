@@ -1,0 +1,52 @@
+body{
+    background-color:rgb(85, 12, 85);
+    justify-content: center;
+
+    }
+
+
+.grid {
+    box-shadow: 10px 10px 20px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    width: 500px;
+    height: 500px;
+    border: solid black;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+}
+  
+.grid div {
+    width: 25px;
+    height: 25px;
+}
+
+.dots {
+    background-color: rgb(230, 171, 104);   
+    border: 7px solid white;
+    box-sizing: border-box;
+}
+
+.wall {
+    background-color:black;
+}
+
+.power-pellet {
+    background-color: rgb(230, 171, 104);
+    border-radius: 10px;
+    border-color:black;
+}
+
+.pac-man {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 40px solid yellow;
+    border-right-color:transparent;
+    height: 0px;
+    width: 0px;
+    border-radius: 20px;
+    transition: 2s;
+}
