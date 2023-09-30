@@ -8,7 +8,7 @@
 setInterval(gameloop,1000/75);*/
 
 document.addEventListener('DOMContentLoaded', () => {
-
+//total box 20*20=400
     const width = 20
     const grid = document.querySelector('.grid')
     const layout = [
@@ -65,13 +65,12 @@ document.addEventListener('DOMContentLoaded', () => {
           squares[i].classList.add('power-pellet')
         }
         
-        else if (layout[i] === 4) 
-          {
-            squares[i].classList.add('pacman')
-          }
       }
     }
     createBoard()
   
-  
+    let pacmanCurrentplace = 372
+    squares[pacmanCurrentplace].classList.add('pacman')  
+
+
 })
