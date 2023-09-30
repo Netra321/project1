@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
         1,0,1,0,1,1,0,1,0,0,0,0,0,0,1,0,1,0,1,1,   //5
         1,0,1,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,1,   //6
         1,0,1,1,1,1,0,0,0,0,0,0,0,1,1,1,1,1,0,1,   //7
-        1,0,1,0,0,0,0,0,1,0,0,1,0,0,0,1,0,0,0,1,   //8
-        1,0,1,0,0,0,1,1,1,0,0,1,1,1,0,1,0,1,0,1,   //9
-        1,0,0,0,1,0,1,0,0,0,0,0,0,1,0,1,0,1,0,1,   //9
-        1,1,1,0,1,0,1,0,0,0,0,0,0,1,0,0,0,0,0,1,   //8
+        1,0,1,0,0,0,0,0,1,2,2,1,0,0,0,1,0,0,0,1,   //8
+        1,0,1,0,0,0,1,1,1,2,2,1,1,1,0,1,0,1,0,1,   //9
+        1,0,0,0,1,0,1,2,2,2,2,2,2,1,0,1,0,1,0,1,   //9
+        1,1,1,0,1,0,1,2,2,2,2,2,2,1,0,0,0,0,0,1,   //8
         1,1,1,0,1,0,1,1,1,1,1,1,1,1,0,0,1,1,0,1,   //7
         1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,   //6
         1,0,1,1,1,1,1,1,0,0,1,1,1,1,1,0,1,0,1,1,   //5
@@ -36,20 +36,38 @@ document.addEventListener('DOMContentLoaded', () => {
        ]
     const squares = []
   
+
+
+
     function createBoard() {
       for (let i = 0; i < layout.length; i++) {
         const square = document.createElement('div')
         grid.appendChild(square)
         squares.push(square)
 
-        if(layout[i] === 0) {
+        if(layout[i] === 0) 
+        {
           squares[i].classList.add('dots')
-        } else if (layout[i] === 1) {
+        } 
+
+        else if (layout[i] === 1)
+         {
           squares[i].classList.add('wall')
-        } else if (layout[i] === 3) {
+         } 
+
+         else if (layout[i] === 2)
+         {
+          squares[i].classList.add('empty')
+         } 
+        
+        else if (layout[i] === 3) 
+        {
           squares[i].classList.add('power-pellet')
-        } else if (layout[i] === 4) {
-            squares[i].classList.add('pac-man')
+        }
+        
+        else if (layout[i] === 4) 
+          {
+            squares[i].classList.add('pacman')
           }
       }
     }
