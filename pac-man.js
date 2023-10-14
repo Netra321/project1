@@ -74,23 +74,23 @@ document.addEventListener('DOMContentLoaded', () => {
   
       function movement(e) {
         squares[pacmanCurrentplace].classList.remove('pacman')
-        switch(e.keyCode) {
-         case 37://left move
+        switch(e.key) {
+         case 'ArrowLeft'://left move
   
             if(pacmanCurrentplace % width !== 0) pacmanCurrentplace -= 1
               break
   
-         case 38://up move
+         case 'ArrowUp'://up move
             
             if(pacmanCurrentplace - width >= 0) pacmanCurrentplace -= width
             break
   
-          case 39://right move
+        case 'ArrowRight'://right move
   
             if(pacmanCurrentplace % width < width - 1) pacmanCurrentplace += 1
             break
   
-          case 40://down move
+          case 'ArrowDown'://down move
             
             if (pacmanCurrentplace + width < width * width)pacmanCurrentplace += width
             break
