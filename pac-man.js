@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         switch(e.key) {
          case 'ArrowLeft'://left move
   
-           if(pacmanCurrentplace % width !== 0) 
+           if(pacmanCurrentplace % width !== 0 && !squares[pacmanCurrentplace -1].classList.contains('wall')) 
             {
                pacmanCurrentplace = pacmanCurrentplace - 1
             }
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
          case 'ArrowUp'://up move
             
-            if(pacmanCurrentplace - width >= 0) 
+            if(pacmanCurrentplace - width >= 0 && !squares[pacmanCurrentplace - width].classList.contains('wall')) 
             {
               pacmanCurrentplace = pacmanCurrentplace - width
             }  
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
           case 'ArrowRight'://right move
   
-            if(pacmanCurrentplace % width < width -1)
+            if(pacmanCurrentplace % width < width -1 && !squares[pacmanCurrentplace + 1].classList.contains('wall'))
             {
               pacmanCurrentplace = pacmanCurrentplace + 1
             }  
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
           case 'ArrowDown'://down move
             
-            if (pacmanCurrentplace + width < width * width)
+            if (pacmanCurrentplace + width < width * width && !squares[pacmanCurrentplace + width].classList.contains('wall'))
             {
               pacmanCurrentplace = pacmanCurrentplace+width
             }  
