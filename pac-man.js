@@ -108,6 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
               pacmanCurrentplace = pacmanCurrentplace+width
             }  
             break
+            
         }
         squares[pacmanCurrentplace].classList.add('pacman')
        
