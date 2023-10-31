@@ -10,6 +10,8 @@ setInterval(gameloop,1000/75);*/
 document.addEventListener('DOMContentLoaded', () => {
   //total box 20*20=400
       const width = 20
+      const scoreDisplay = document.getElementById('score')
+      let score = 0
       const grid = document.querySelector('.grid')
       const layout = [
           1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,   //0
@@ -74,7 +76,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
       squares[pacmanCurrentplace].classList.add('pacman')  
   
-      function movement(e) {
+      function movement(e) 
+      {
         squares[pacmanCurrentplace].classList.remove('pacman')
         switch(e.key) {
          case 'ArrowLeft'://left move
@@ -111,10 +114,28 @@ document.addEventListener('DOMContentLoaded', () => {
             
         }
         squares[pacmanCurrentplace].classList.add('pacman')
+        
+        //calling function for eating the dots:
+        dots_eaten()
        
       }
       document.addEventListener('keyup', movement)
-    
+
+     
+      
+      function dots_eaten(){
+        if(squares[pacmanCurrentplace].classList.contains('dots'))
+        {
+          score++
+          scoreDisplay.innerHTML = score
+          squares[pacmanCurrentplace].classList.remove('dots')
+        }
+      }
+
+
+
+
+
   
   })
   
