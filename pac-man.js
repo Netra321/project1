@@ -116,8 +116,11 @@ document.addEventListener('DOMContentLoaded', () => {
         squares[pacmanCurrentplace].classList.add('pacman')
         
         //calling function for eating the dots:
+        
         dots_eaten()
-       
+        power_pellet_eaten()
+        checking_for_win()
+
       }
       document.addEventListener('keyup', movement)
 
@@ -131,11 +134,28 @@ document.addEventListener('DOMContentLoaded', () => {
           squares[pacmanCurrentplace].classList.remove('dots')
         }
       }
-
-
-
-
-
+      function power_pellet_eaten()
+      {
+        if(squares[pacmanCurrentplace].classList.contains('power-pellet'))
+        {
+          score=score+10
+          scoreDisplay.innerHTML = score
+          squares[pacmanCurrentplace].classList.remove('power-pellet')
+        }
+      }  
   
+      function checking_for_win()
+      {
+          if(score==222)
+          {
+            document.removeEventListener('keyup', movement)
+            setTimeout
+            (function(){ alert("You have WON!"); },500)
+          }
+      }
+
+
   })
   
+
+ 
