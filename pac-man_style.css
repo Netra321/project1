@@ -3,7 +3,6 @@
                 justify-content: center;
         }
 
-
         .grid {
                 box-shadow: 10px 10px 20px;
                 display: flex;
@@ -23,6 +22,7 @@
                 height: 25px;
                 }
 
+             
 
         .dots {
                 background-color: rgb(230, 171, 104);   
@@ -52,3 +52,15 @@
                 background-color: yellow;
                 border-radius: 10px;
                 }
+
+        .ghost1 {
+                 background-color: red;
+                }
+                    
+        .ghost2 {
+                 background-color: pink;
+               }
+                    
+        .ghost3{
+                 background-color: cyan;
+              }        
