@@ -11,7 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
   //total box 20*20=400
       const width = 20
       const scoreDisplay = document.getElementById('score')
+      const countDisplay = document.getElementById('count')
       let score = 0
+      let count = 0
       const grid = document.querySelector('.grid')
       const layout = [
           1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,   //0
@@ -36,12 +38,10 @@ document.addEventListener('DOMContentLoaded', () => {
           1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1    //0
       /*  0,1,2,3,4,5,6,7,8,9,9,8,7,6,5,4,3,2,1,0*/
          ]
+
       const squares = []
-    
-  
-  
-  
-      function createBoard() {
+      
+     function createBoard() {
         for (let i = 0; i < layout.length; i++) {
           const square = document.createElement('div')
           grid.appendChild(square)
@@ -81,10 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
         squares[pacmanCurrentplace].classList.remove('pacman')
         switch(e.key) {
          case 'ArrowLeft'://left move
-  
+            //here on first move width = 13
            if(pacmanCurrentplace % width !== 0 && !squares[pacmanCurrentplace -1].classList.contains('wall')) 
             {
                pacmanCurrentplace = pacmanCurrentplace - 1
+               count++
+               countDisplay.innerHTML = count
             }
               break
   
@@ -93,6 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if(pacmanCurrentplace - width >= 0 && !squares[pacmanCurrentplace - width].classList.contains('wall')) 
             {
               pacmanCurrentplace = pacmanCurrentplace - width
+              count++
+              countDisplay.innerHTML = count
             }  
             break
   
@@ -101,6 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if(pacmanCurrentplace % width < width -1 && !squares[pacmanCurrentplace + 1].classList.contains('wall'))
             {
               pacmanCurrentplace = pacmanCurrentplace + 1
+              count++
+              countDisplay.innerHTML = count
             }  
             break
   
@@ -109,6 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (pacmanCurrentplace + width < width * width && !squares[pacmanCurrentplace + width].classList.contains('wall'))
             {
               pacmanCurrentplace = pacmanCurrentplace+width
+              count++
+              countDisplay.innerHTML = count
             }  
             break
             
@@ -119,12 +127,14 @@ document.addEventListener('DOMContentLoaded', () => {
         
         dots_eaten()
         power_pellet_eaten()
+        checking_for_lose()
         checking_for_win()
+
 
       }
       document.addEventListener('keyup', movement)
 
-     
+     //when pac-man eat dots
       
       function dots_eaten(){
         if(squares[pacmanCurrentplace].classList.contains('dots'))
@@ -134,6 +144,9 @@ document.addEventListener('DOMContentLoaded', () => {
           squares[pacmanCurrentplace].classList.remove('dots')
         }
       }
+
+      //when pac-man eat power pellets
+
       function power_pellet_eaten()
       {
         if(squares[pacmanCurrentplace].classList.contains('power-pellet'))
@@ -144,18 +157,66 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }  
   
-      function checking_for_win()
+       //create ghosts
+      function Ghost (className, startIndex, speed)
+   {
+      this.className = className
+    //  this.startIndex = startIndex
+      this.currentIndex = startIndex
+     
+    }
+  
+
+  
+
+  //all my ghosts
+  ghosts = [
+    new Ghost('ghost1', 230,200),
+    new Ghost('ghost2', 231,400),
+    new Ghost('ghost3', 229,500)
+    ]
+
+  //draw my ghosts onto the grid
+  ghosts.forEach(ghost => {
+    squares[ghost.currentIndex].classList.add(ghost.className)
+    squares[ghost.currentIndex].classList.add('ghost')
+    })
+
+
+
+  //movement of ghosts
+ /* ghosts.forEach(ghost)
+   function moveGhost(ghost) 
+   {
+        const directions = [-1, +1, width, -width]
+        let direction = directions[Math.floor(Math.random()*directions)]
+   }*/
+
+
+//when the pac-man lose
+function checking_for_lose()
+{
+    if(count>=230)
+    {
+      let text ="YOU lose!!!";
+      document.removeEventListener('keyup', movement)
+      setTimeout
+      (function(){ alert("You have lose!"); },500)
+    }
+}    
+
+
+   //when the pac-man win
+   function checking_for_win()
       {
           if(score==222)
           {
+            let text ="YOU WON!!!";
             document.removeEventListener('keyup', movement)
             setTimeout
             (function(){ alert("You have WON!"); },500)
+           // ctx.fillStyle = "black";
           }
-      }
-
+      }    
 
   })
-  
-
- 
