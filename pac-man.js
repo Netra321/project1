@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
       //starting position of pac-man
       let pacmanCurrentplace = 372
-
+    
       squares[pacmanCurrentplace].classList.add('pacman')  
   
       function movement(e) 
@@ -198,13 +198,13 @@ function checking_for_lose()
 {
     if(count>=230)
     {
-      let text ="YOU lose!!!";
+      let text ="YOU lOSE!!!";
       document.removeEventListener('keyup', movement)
-      setTimeout
-      (function(){ alert("You have lose!"); },500)
+       setTimeout
+       (function(){ alert("You have lose!"); },500)
+
     }
 }    
-
 
    //when the pac-man win
    function checking_for_win()
@@ -216,7 +216,7 @@ function checking_for_lose()
             setTimeout
             (function(){ alert("You have WON!"); },500)
            // ctx.fillStyle = "black";
+          
           }
       }    
-
-  })
+ })
