@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const scoreDisplay = document.getElementById('score')
       const countDisplay = document.getElementById('count')
       let score = 0
-      let count = 0
+      let count = 230
       const grid = document.querySelector('.grid')
       const layout = [
           1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,   //0
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
            if(pacmanCurrentplace % width !== 0 && !squares[pacmanCurrentplace -1].classList.contains('wall')) 
             {
                pacmanCurrentplace = pacmanCurrentplace - 1
-               count++
+               count--
                countDisplay.innerHTML = count
             }
               break
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if(pacmanCurrentplace - width >= 0 && !squares[pacmanCurrentplace - width].classList.contains('wall')) 
             {
               pacmanCurrentplace = pacmanCurrentplace - width
-              count++
+              count--
               countDisplay.innerHTML = count
             }  
             break
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if(pacmanCurrentplace % width < width -1 && !squares[pacmanCurrentplace + 1].classList.contains('wall'))
             {
               pacmanCurrentplace = pacmanCurrentplace + 1
-              count++
+              count--
               countDisplay.innerHTML = count
             }  
             break
@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (pacmanCurrentplace + width < width * width && !squares[pacmanCurrentplace + width].classList.contains('wall'))
             {
               pacmanCurrentplace = pacmanCurrentplace+width
-              count++
+              count--
               countDisplay.innerHTML = count
             }  
             break
@@ -196,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //when the pac-man lose
 function checking_for_lose()
 {
-    if(count>=230)
+    if(count==0)
     {
       let text ="YOU lOSE!!!";
       document.removeEventListener('keyup', movement)
